@@ -75,7 +75,7 @@ func main() {
 		urlLoc := rx.FindAllIndex([]byte(text), -1)
 		for _, loc := range urlLoc {
 			// check for wildcard,... not so good code
-			if loc[0] > 2 && text[loc[0]-2:loc[0]] == "*." {
+			if loc[0] >= 2 && text[loc[0]-2:loc[0]] == "*." {
 				out = append(out, text[loc[0]-2:loc[1]])
 			} else {
 				out = append(out, text[loc[0]:loc[1]])
@@ -92,7 +92,7 @@ func main() {
 				}
 			}
 			if !delete {
-			        fmt.Printf("%s\n", s)
+				fmt.Printf("%s\n", s)
 			}
 		} else {
 			fmt.Printf("%s\n", s)
