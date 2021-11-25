@@ -92,10 +92,10 @@ func main() {
 				}
 			}
 			if !delete {
-				fmt.Println(s)
+			        fmt.Printf("%s\n", s)
 			}
 		} else {
-			fmt.Printf("2 %s\n", s)
+			fmt.Printf("%s\n", s)
 		}
 	}
 }
