@@ -13,6 +13,8 @@ import (
 	"mvdan.cc/xurls/v2"
 )
 
+const Version = `0.0.2`
+
 type Sed struct {
 	Re      regexp.Regexp
 	Replace string
@@ -45,8 +47,17 @@ func main() {
 	var out []string
 	var configPath string
 	var seds []Sed
+	var flagVersion bool
+
+	flag.BoolVar(&flagVersion, "version", false, "show xtract version")
 	flag.StringVar(&configPath, "config", "./config.yml", "path of the config file")
 	flag.Parse()
+
+	if flagVersion {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
+
 	config := newConf(configPath)
 	for _, cr := range config.Replace {
 		sed := Sed{}
