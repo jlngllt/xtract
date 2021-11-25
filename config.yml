@@ -1,0 +1,9 @@
+replace:
+  - match: "test"
+    tgt: "test2"
+  - match: "yes"
+    tgt: "no"
+
+blacklist:
+  - bitbucket.org
+  - github.com
